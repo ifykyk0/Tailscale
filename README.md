@@ -205,9 +205,11 @@ Install ho jaye to browser me **Ctrl + F5** dabao (page refresh) aur **Services*
 
 **Kya dikhna chahiye:** machine ke naam ke neeche **Expiry disabled** ka badge dikhta hai.
 
-> Ye sirf **router** ke liye karo. Phone ka expiry on rehne do (Security wale hisse me wajah hai).
+> Ye sirf **router** ke liye karo. Phone ka expiry on rehne do (Security wale hisse me wajah hai).But agar phone mein bhi karna chahte hai toh kar sakte hai.
 
 <!-- ![Step 4: Disable key expiry](screenshots/step-04-disable-expiry.png) -->
+<img width="650" height="630" alt="image" src="https://github.com/user-attachments/assets/952a44dd-6784-4a0c-86ad-a94ad4cf8934" />
+
 
 ---
 
@@ -236,11 +238,11 @@ Jo line `default via ...` se shuru hoti hai, uske saamne wala IP ODU ka hai. Jai
 
 **Services → Tailscale → General Settings** tab kholo.
 
-> **Sirf ek cheez zaroori hai: "Advertise Routes".** Baaki settings zyadatar jaisi hain waisi rehni chahiye. Neeche ki table sirf check karne ke liye hai. Agar koi option samajh na aaye, use chhedo mat.
+> **Is page par sirf ek cheez badalni hai: "Advertise Routes".** Baaki settings zyadatar jaisi hain waisi rehni chahiye. Neeche ki table sirf check karne ke liye hai. Agar koi option samajh na aaye, use chhedo mat. (Poore setup ke liye Step 7 aur Step 8 bhi zaroori hain.)
 
 ### Advertise Routes (yahi asli kaam hai)
 **Advertise Routes** me **do cheezein** daalo:
-- Dropdown me se **`192.168.1.0/24`** chuno (ye router ka ghar wala network hai).
+- Dropdown me se **`192.168.1.0/24`** chuno (ye router ka ghar wala network hai). Agar aapka router alag IP par hai (jaise `192.168.0.1`), to dropdown me jo aapka LAN dikhe wahi chuno.
 - Dusre box me type karo **`192.168.225.1/32`** (apna ODU IP, `/32` ke saath) aur **Enter** dabao. Wo ek chip (chhota tag) ban jayega.
 
 > **`/32` ka matlab sirf ek address.** Dropdown me `192.168.225.0/24` bhi dikhega, use **mat chunna**. Usse ODU ke peeche ke sab devices khul jate hain, jabki hume sirf ODU ka panel chahiye.
@@ -255,7 +257,7 @@ Jo line `default via ...` se shuru hoti hai, uske saamne wala IP ODU ka hai. Jai
 | Allow LAN Access | band | Exit node ke liye hai |
 | Enable Web Interface | band | Extra panel khulta hai, zaroorat nahi |
 | Disable SNAT | **band** (tick mat karo) | Router bahar jaate traffic ka address badal deta hai, isse ODU ko jawab sahi jagah milta hai |
-| Shields Up | **band** (tick mat karo) | Tick kiya to bahar se kuch nahi khulega |
+| Shields Up | **band** (tick mat karo) | Tick karne par bahar se aane wale connections rok diye ja sakte hain, isliye band rakho |
 | Enable Tailscale SSH | band | Normal SSH hi chalega |
 | Disable MagicDNS | band | Jaisa hai rehne do |
 | Exit Node | **None** | Abhi nahi chahiye |
@@ -284,15 +286,15 @@ Neeche **Save & Apply** dabao.
 | MSS clamping | tick |
 | Covered networks | **tailscale** |
 | Allow forward to destination zones | **lan** aur **wan** dono |
-| Allow forward from source zones | **sirf lan** (wan mat jodo) |
+aur Ta| Allow forward from source zones | **sirf lan** (wan mat jodo). Agar LAN ke devices se Tailscale devices tak jaana nahi hai to ise khali bhi chhod sakte ho |ilscale account ka password badal do (agar Google/Microsoft se login kiya hai to us account ka password).
 
 5. Neeche **Save** dabao. Phir firewall page ke neeche **Save & Apply**.
 
-> **Kyun `wan` chahiye?** Jio ODU router ke **WAN** side par hai. Tailscale se aaye traffic ko `wan` ki taraf bhejne ki permission na ho to router use aage nahi jaane deta. Aksar ODU ka panel isi wajah se nahi khulta. "Source zones" me `wan` nahi jodna, nahi to ODU ki taraf se aapke Tailscale network me connection khul jayega.
+> **Kyun `wan` chahiye?** Jio ODU router ke **WAN** side par hai. Tailscale se aaye traffic ko `wan` ki taraf bhejne ki permission na ho to router use aage nahi jaane deta. Ye ODU ka panel na khulne ki ek aam wajah ho sakti hai. "Source zones" me `wan` nahi jodna, nahi to ODU ki taraf se aapke Tailscale network me connection khul jayega.
 >
 > `wan` zone ki **Masquerading** pehle se on hoti hai. Use band mat karna.
 
-**Command se karna ho (optional):** agar upar ki settings samajh na aaye, ya `wan` forward na dikhe, to SSH me ye chalao. Ye wahi cheez karta hai jo upar ki table me `wan` jodna karta hai. Dobara chalane se koi nuksaan nahi hota.
+**Command se karna ho (optional):** agar upar ki settings samajh na aaye, ya `wan` forward na dikhe, to SSH me ye chalao. Ye wahi cheez karta hai jo upar ki table me `wan` jodna karta hai. Dobara chalane se koi nuksaan nahi hota. Ye command tabhi chalao jab upar point 1 me **Auto Configure Firewall** dabake `tailscale` zone ban chuka ho.
 
 ```
 uci set firewall.tailscale_to_wan='forwarding'
@@ -423,8 +425,8 @@ ip route
 Is guide ke baad aapke **Tailscale network ka har device** router ka panel (LuCI aur SSH), aapke ghar ke LAN ke devices (`192.168.1.0/24`), aur Jio ODU ka panel kholne layak ho jata hai. Aapke akele ke tailnet me ye theek hai. Par isliye:
 
 - Tailscale network me **sirf apne devices** rakho. **Apna tailnet ya router ka node kisi ko share mat karo.**
-- **Phone chori ho jaye ya kho jaye** to turant admin page par us device ke **...** → **Delete** kar do, aur Tailscale account ka password badal do. Phone me screen lock aur biometric zaroor rakho.
-- Phone ka **key expiry on rehne do** (sirf router ka band kiya hai).
+- **Phone chori ho jaye ya kho jaye** to turant admin page par us device ke **...** → **Delete** kar do, aur Tailscale account ka password badal do (agar Google/Microsoft se login kiya hai to us account ka password). Phone me screen lock aur biometric zaroor rakho.
+- Phone ka **key expiry on rehne do** (sirf router ka band kiya hai). Phone kho jaye to uski login kuch mahine baad apne aap khatam ho jati hai.
 - Zyada control chahiye (jaise "sirf ye phone sirf router ke port 443 tak pahunche") to Tailscale admin page ke **Access controls** me limit laga sakte ho. **Galat policy se aap khud lock ho sakte hain**, isliye pehle Tailscale ke docs padho aur default policy ka backup rakho.
 
 ### Baaki baatein
@@ -451,7 +453,7 @@ Is guide ke baad aapke **Tailscale network ka har device** router ka panel (LuCI
 
 ## Aksar poochhe jane wale sawal
 
-**Kya ye free hai?** Haan, Tailscale ka personal plan free hai.
+**Kya ye free hai?** Is guide ke likhe jaane ke time Tailscale ka personal plan free hai. Plan badal sakte hain, isliye Tailscale ka pricing page ek baar dekh lo.
 
 **Kya Jio AirFiber par chalega, jahan public IP nahi hota?** Haan. Tailscale ko port-forwarding ya public IP nahi chahiye, kyunki connection aapke devices apne aap bana lete hain. Kabhi-kabhi relay se chalta hai aur speed kam ho sakti hai.
 
