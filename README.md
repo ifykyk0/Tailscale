@@ -272,6 +272,10 @@ Neeche **Save & Apply** dabao.
 
 <!-- ![Step 6: Advertise routes chips](screenshots/step-06-advertise-routes.png) -->
 <img width="717" height="842" alt="image" src="https://github.com/user-attachments/assets/efb23f4b-0d0b-4a5c-9d03-d87ce8d34aa1" />
+<img width="1403" height="831" alt="image" src="https://github.com/user-attachments/assets/c4d727c4-ec9d-46cd-aa32-0dfa71b6ec04" />
+<img width="1792" height="891" alt="image" src="https://github.com/user-attachments/assets/fce379e8-222f-48d4-961d-21ac2b508743" />
+
+
 
 
 ---
@@ -313,6 +317,9 @@ uci commit firewall
 **Kya dikhna chahiye:** firewall restart ke baad koi error nahi aata.
 
 <!-- ![Step 7: tailscale zone settings](screenshots/step-07-firewall-zone.png) -->
+<img width="1338" height="941" alt="image" src="https://github.com/user-attachments/assets/909997b3-d8e1-4dc0-beb3-4f16ba412979" />
+
+
 <img width="1805" height="892" alt="image" src="https://github.com/user-attachments/assets/7780e61f-1e95-4e34-be1a-1a9100f6ff1c" />
 
 
