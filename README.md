@@ -193,7 +193,10 @@ Install ho jaye to browser me **Ctrl + F5** dabao (page refresh) aur **Services*
 > Agar admin page par purani `openwrt` entry bhi dikhe jiska dot grey hai (pehle kisi firmware ki), to uske saamne **...** → **Delete** kar do. Phone wali entry mat hatana.
 
 <!-- ![Step 3: Login button](screenshots/step-03-login.png) -->
+<img width="1722" height="928" alt="image" src="https://github.com/user-attachments/assets/c78a1978-d588-455c-aa38-55c79af44458" />
+
 <!-- ![Step 3: Two machines green](screenshots/step-03-machines-green.png) -->
+<img width="1597" height="617" alt="image" src="https://github.com/user-attachments/assets/817e6f5c-e311-4541-9507-7c44bfdb22f7" />
 
 ---
 
@@ -230,6 +233,7 @@ Jo line `default via ...` se shuru hoti hai, uske saamne wala IP ODU ka hai. Jai
 > **Is guide me `<ODU-IP>` ka matlab:** aapke ODU ka IP. Agar aapka IP `192.168.225.1` hai, to jahan `<ODU-IP>/32` likha hai wahan `192.168.225.1/32` likho. Alag IP hai to wahi likho.
 
 <!-- ![Step 5: Status Overview gateway](screenshots/step-05-gateway.png) -->
+
 <!-- ![Step 5: JioODU login page](screenshots/step-05-odu-login.png) -->
 
 ---
@@ -267,6 +271,8 @@ Neeche **Save & Apply** dabao.
 **Kya dikhna chahiye:** Advertise Routes me do chip dikhte hain: `192.168.1.0/24` aur `192.168.225.1/32` (ya aapka ODU IP).
 
 <!-- ![Step 6: Advertise routes chips](screenshots/step-06-advertise-routes.png) -->
+<img width="717" height="842" alt="image" src="https://github.com/user-attachments/assets/efb23f4b-0d0b-4a5c-9d03-d87ce8d34aa1" />
+
 
 ---
 
@@ -307,6 +313,8 @@ uci commit firewall
 **Kya dikhna chahiye:** firewall restart ke baad koi error nahi aata.
 
 <!-- ![Step 7: tailscale zone settings](screenshots/step-07-firewall-zone.png) -->
+<img width="1805" height="892" alt="image" src="https://github.com/user-attachments/assets/7780e61f-1e95-4e34-be1a-1a9100f6ff1c" />
+
 
 ---
 
@@ -325,6 +333,7 @@ Router ne routes maange hain, par Tailscale tabhi use karta hai jab aap admin pa
 **Kya dikhna chahiye:** `openwrt` ke naam ke neeche **Subnets** ka badge (neela) aur **Expiry disabled** ka badge dikhte hain. Subnets na dikhe to page refresh karo.
 
 <!-- ![Step 8: Edit route settings](screenshots/step-08-approve-routes.png) -->
+<img width="717" height="842" alt="image" src="https://github.com/user-attachments/assets/250f49d3-7ebd-4884-873d-5d0ea6660842" />
 
 ---
 
